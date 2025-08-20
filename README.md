@@ -1,129 +1,145 @@
-<h6> Custom Area Screenshot Chrome Extension </h6>
+# Custom Area Screenshot – Chrome Extension
 
-Table of Contents
+## 📑 Table of Contents
+1. [Overview](#overview)  
+2. [Features](#features)  
+3. [Installation](#installation)  
+4. [Usage](#usage)  
+5. [Keyboard Shortcuts](#keyboard-shortcuts)  
+6. [Permissions and Why They're Needed](#permissions-and-why-theyre-needed)  
+7. [Development and Contributing](#development-and-contributing)  
+8. [File Structure](#file-structure)  
+9. [Building and Testing](#building-and-testing)  
+10. [Potential Improvements](#potential-improvements)  
+11. [License](#license)  
 
-* Overview
-* Features
-Installation
-Usage
-Keyboard Shortcuts
-Permissions and Why They're Needed
-Development and Contributing
+---
 
-File Structure
-Building and Testing
-Potential Improvements
+## 1. Overview  
+This Chrome extension allows users to:  
+- Capture a **custom-selected area** of a webpage.  
+- Preview the screenshot in the extension popup.  
+- Download it as a PNG file.  
 
+It also supports:  
+- **Keyboard shortcuts** for capturing the entire visible tab instantly.  
+- **Persistent storage** for last captured screenshot.  
+- Built with **Chrome Manifest V3**.  
 
-License
+---
 
-Overview
-This Chrome extension allows users to capture a custom-selected area of a webpage, preview the screenshot in the extension's popup, and download it as a PNG file. It also provides keyboard shortcuts to quickly capture and download the entire visible tab area without manual selection.
-The extension is built using Chrome's Manifest V3 and includes features like area selection with drag-and-drop, error handling, and storage for the last capture.
-Features
+## 2. Features  
+1. **Custom Area Selection** – Drag and select a region of the page to capture.  
+2. **Preview & Download** – Captured screenshot is previewed in popup and downloadable as a PNG.  
+3. **Full Visible Tab Capture** – Capture entire visible tab via shortcuts.  
+4. **Error Handling** – Messages for small selections, cancellations (Esc), or failures.  
+5. **Persistent Last Capture** – Last screenshot is auto-loaded in popup.  
+6. **Crosshair Cursor & Overlay** – Dark overlay and crosshair cursor for precise selection.  
 
-Custom Area Selection: Click "Capture area" in the popup, then drag to select a region on the current tab. The selected area is captured and displayed in the popup for preview.
-Preview and Download: After capture, the screenshot appears in the popup. Click "Download" to save it as a PNG file with a timestamped filename (e.g., screenshot-2025-08-20T12-00-00-000Z.png).
-Full Visible Tab Capture: Use keyboard shortcuts to capture the entire visible tab and automatically download it (e.g., visible-screenshot-2025-08-20T12-00-00-000Z.png).
-Error Handling: Displays messages for issues like small selections, cancellations (via Esc key), or capture failures.
-Persistent Last Capture: The most recent capture is stored locally and auto-loaded in the popup for quick access.
-Crosshair Cursor and Overlay: During selection, an overlay darkens the page with a crosshair cursor for precise area picking.
+---
 
-Installation
+## 3. Installation  
 
-Download the Extension Files:
+### 🔹 Download the Extension Files  
+- Clone or download repository with:  
+  - `manifest.json`  
+  - `popup.html`  
+  - `popup.js`  
+  - `content.js`  
+  - `background.js`  
+  - `icon16.png`, `icon48.png`, `icon128.png`  
 
-Clone or download the repository containing the extension files: manifest.json, popup.html, popup.js, content.js, background.js, and icon files (icon16.png, icon48.png, icon128.png).
+### 🔹 Load into Chrome  
+1. Open **`chrome://extensions/`**  
+2. Enable **Developer mode**  
+3. Click **Load unpacked** → Select extension folder  
+4. Extension will appear in toolbar as **"Custom Screenshot"**  
 
+### 🔹 Optional: Publish to Chrome Web Store  
+- Package as ZIP and upload via **Chrome Web Store Developer Dashboard**  
 
-Load the Extension in Chrome:
+---
 
-Open Chrome and navigate to chrome://extensions/.
-Enable "Developer mode" in the top-right corner.
-Click "Load unpacked" and select the folder containing the extension files.
-The extension should now appear in your toolbar with the title "Custom Screenshot".
+## 4. Usage  
 
+1. **Open Popup** → Click extension icon.  
+2. **Capture Area** → Click "Capture area", drag to select, release mouse.  
+   - Press **Esc** to cancel.  
+   - If too small (<5x5 px), error message shows.  
+3. **Download Screenshot** → Click "Download" (auto-saved with timestamp).  
+4. **Full Visible Tab Capture** → Use shortcuts (see next section).  
+5. **Error Messages**:  
+   - `"Selection too small or cancelled."`  
+   - `"Selection cancelled"`  
+   - `"No active tab."`  
+   - `"Capture failed"`  
 
-Optional: Publish to Chrome Web Store:
+---
 
-For production use, package the extension as a ZIP file and upload it to the Chrome Web Store Developer Dashboard.
+## 5. Keyboard Shortcuts  
 
+1. **Ctrl+Shift+Q** (Mac: **Cmd+Shift+Q**)  
+   - Capture & download with filename ending in `Q`.  
+2. **Ctrl+Shift+X** (Mac: **Cmd+Shift+X**)  
+   - Capture & download with filename ending in `X`.  
 
+👉 Shortcuts can be customized at **`chrome://extensions/shortcuts`**  
 
-Usage
+---
 
-Open the Popup:
+## 6. Permissions and Why They’re Needed  
 
-Click the extension icon in the Chrome toolbar to open the popup.
+- **`tabs`** → Query active tab for capture.  
+- **`activeTab`** → Interact with current tab.  
+- **`scripting`** → Inject `content.js` for selection.  
+- **`storage`** → Save last capture locally.  
+- **`downloads`** → Save files to device.  
+- **`<all_urls>`** → Work on any webpage.  
 
+⚠️ No external data is sent. Permissions are minimal & essential.  
 
-Capture a Custom Area:
+---
 
-In the popup, click the "Capture area" button.
-The page will show a darkened overlay with a crosshair cursor.
-Click and drag to select the desired area.
-Release the mouse to capture. (Press Esc to cancel.)
-The captured screenshot will appear in the popup preview.
-If the selection is too small (less than 5x5 pixels), an error message will display.
+## 7. Development and Contributing  
 
+- Fork repo → Make changes → Submit PR.  
+- Debugging:  
+  - **Popup** → Right-click popup → Inspect.  
+  - **Background script** → Inspect from `chrome://extensions/`.  
 
-Download the Screenshot:
+---
 
-Once previewed, click the "Download" button in the popup.
-The file will download automatically with a timestamp.
+## 8. File Structure  
 
+```
+/Custom-Area-Screenshot
+ ├── manifest.json       # Extension metadata & permissions
+ ├── popup.html          # Popup UI
+ ├── popup.js            # Popup logic
+ ├── content.js          # Handles area selection
+ ├── background.js       # Service worker (capture, downloads)
+ ├── icons/              # icon16.png, icon48.png, icon128.png
+```
 
-Full Visible Tab Capture:
+---
 
-Use the keyboard shortcuts (see below) to capture the entire visible tab and download it directly, bypassing the popup.
+## 9. Building and Testing  
 
+- Use Chrome DevTools for debugging.  
+- Test on multiple pages & high DPI screens.  
+- Provide required icons in all sizes.  
 
-Error Messages:
+---
 
-Common messages include "Selection too small or cancelled.", "Selection cancelled", "No active tab.", or "Capture failed".
-These appear in the popup for user feedback.
+## 10. Potential Improvements  
 
+- [ ] Add JPEG & other image formats.  
+- [ ] Support full-page (scrollable) capture.  
+- [ ] Add zoom/edit features in preview UI.  
 
+---
 
-Keyboard Shortcuts
-The extension defines two commands for capturing the full visible tab and downloading it immediately:
+## 11. License  
 
-Ctrl+Shift+Q (or Command+Shift+Q on Mac): Capture and download with filename ending in "Q" (via capture_visible_area_Q command).
-Ctrl+Shift+X (or Command+Shift+X on Mac): Capture and download with filename ending in "X" (via capture_visible_area_X command).
-
-Note: These shortcuts can be customized in Chrome's extension settings at chrome://extensions/shortcuts.
-Permissions and Why They're Needed
-The extension requires the following permissions (defined in manifest.json):
-
-tabs: To query the active tab for capture.
-activeTab: To interact with the current tab during selection and capture.
-scripting: To inject content.js for handling area selection on the page.
-storage: To store the last capture locally for quick preview reload.
-downloads: To save the screenshot files to the user's device.
-Host Permissions: <all_urls>: To allow the extension to work on any webpage.
-
-These permissions are minimal and focused on the extension's core functionality. No data is sent externally.
-Development and Contributing
-File Structure
-
-manifest.json: Defines the extension's metadata, permissions, popup, background script, icons, and commands.
-popup.html: The UI for the popup, including buttons, preview image, and message display.
-popup.js: Handles popup logic, like button clicks, image processing with Canvas, and message listening.
-content.js: Injected into the tab for area selection (overlay, drag logic, and Esc cancellation).
-background.js: Service worker for handling capture requests, storing results, and downloading full tab screenshots.
-
-Building and Testing
-
-Use Chrome's developer tools to debug the popup (right-click in popup > Inspect) and background script (via chrome://extensions/ > Inspect views).
-Test on various pages, including those with high DPI (devicePixelRatio handling is included).
-Ensure icons are provided in the specified sizes.
-
-Potential Improvements
-
-Add options for different image formats (e.g., JPEG).
-Support full-page capture (beyond visible tab).
-Enhance UI with zoom or edit features in the preview.
-
-Contributions are welcome! Fork the repository, make changes, and submit a pull request.
-License
-This extension is open-source and released under the MIT License (or specify your preferred license). See LICENSE file for details
+📜 Open-source under **MIT License**.  
+See [LICENSE](./LICENSE) for details.  
