@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Custom Area Screenshot",
+  "version": "1.0",
+  "description": "Select an area on the page, show it in popup and download.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Custom Screenshot"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
