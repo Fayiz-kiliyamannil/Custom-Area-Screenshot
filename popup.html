@@ -3,17 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <title>Custom Screenshot</title>
-  <style>
-    body { font-family: Arial, sans-serif; width: 360px; padding: 10px; box-sizing: border-box; }
-    button { padding: 8px 12px; margin: 6px 0; }
-    #preview { margin-top: 8px; max-width: 100%; border: 1px solid #ddd; display:block; }
-    #canvas { display:none; max-width:100%; }
-    .controls { display:flex; gap:8px; align-items:center; }
-    .note { font-size:12px; color:#666; margin-top:6px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h3>Custom Area Screenshot</h3>
+  <div class="container">
+    <h3>Custom Area Screenshot</h3>
   <div class="controls">
     <button id="captureBtn">Capture area</button>
     <button id="downloadBtn" disabled>Download</button>
@@ -21,7 +15,9 @@
   <div class="note">Click <strong>Capture area</strong>, drag to select. Press Esc to cancel.</div>
   <canvas id="canvas"></canvas>
   <img id="preview" alt="Cropped preview will appear here" />
-  <div id="msg" style="color:red; font-size:12px; margin-top:6px;"></div>
+  <div id="msg" style="color:rgb(0, 0, 0); font-size:12px; margin-top:6px;"></div>
+    
+  </div>
 
   <script src="popup.js"></script>
 </body>

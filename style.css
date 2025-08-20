@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #e6409b;
+    background: linear-gradient(135deg, rgb(133, 9, 77) 0%, rgb(67, 89, 114) 100%);
+    padding: 16px;
+    text-align: center;
+    width: 360px;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 10%;
+    color: white;
+  }
+
+  .container {
+    border-radius: 20px;
+    background: #e6409b;
+    background: linear-gradient(135deg, rgba(230, 64, 155, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    padding: 10px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    background: linear-gradient(135deg, #2a2a2a, #1c1c1c);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.08);
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #3a3a3a, #222);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px white;
+  }
+
+  @keyframes glowwave {
+    0% {
+        box-shadow: 0 0 10px rgba(43, 109, 209, 0.4),
+        0 0 20px rgba(43, 109, 209, 0.5),
+        0 0 30px rgba(43, 109, 209, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 6px rgba(23, 65, 129, 0.6),
+        0 0 12px rgba(23, 65, 129, 0.7),
+        0 0 20px rgba(23, 65, 129, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 6px rgba(205, 223, 250, 0.5),
+        0 0 16px rgba(205, 223, 250, 0.7),
+        0 0 24px rgba(205, 223, 250, 0.5);
+    }
+  }
+  
+  button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.05);
+  }
+  
+  button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #2a2a2a;
+  }
+  
+  .note {
+    font-size: 12px;
+    color: #000000;
+    margin-bottom: 16px;
+  }
+  
+  canvas {
+    display: none; /* hidden until used */
+  }
+  
+  #preview {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  
+  #msg {
+    color: #ff5c5c; /* error red */
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  

@@ -14,7 +14,8 @@
     "tabs",
     "activeTab",
     "scripting",
-    "storage"
+    "storage",
+    "downloads"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -23,5 +24,19 @@
     "16": "icon16.png",
     "48": "icon48.png",
     "128": "icon128.png"
+  },
+  "commands": {
+    "capture_visible_area_Q": {
+        "suggested_key": {
+            "default": "Ctrl+Shift+Q"
+        },
+        "description": "capture full tab and download with D"
+    },
+    "capture_visible_area_X": {
+        "suggested_key": {
+            "default": "Ctrl+Shift+X"
+        },
+        "description": "capture full tab and download with Q"
+    }
   }
 }
