@@ -1,4 +1,22 @@
 Custom Area Screenshot Chrome Extension
+
+Table of Contents
+
+Overview
+Features
+Installation
+Usage
+Keyboard Shortcuts
+Permissions and Why They're Needed
+Development and Contributing
+
+File Structure
+Building and Testing
+Potential Improvements
+
+
+License
+
 Overview
 This Chrome extension allows users to capture a custom-selected area of a webpage, preview the screenshot in the extension's popup, and download it as a PNG file. It also provides keyboard shortcuts to quickly capture and download the entire visible tab area without manual selection.
 The extension is built using Chrome's Manifest V3 and includes features like area selection with drag-and-drop, error handling, and storage for the last capture.
@@ -108,4 +126,4 @@ Enhance UI with zoom or edit features in the preview.
 
 Contributions are welcome! Fork the repository, make changes, and submit a pull request.
 License
-This extension is open-source and released under the MIT License (or specify your preferred license). See LICENSE
+This extension is open-source and released under the MIT License (or specify your preferred license). See LICENSE file for details
