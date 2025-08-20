@@ -1,9 +1,9 @@
-Custom Area Screenshot Chrome Extension
+<h6> Custom Area Screenshot Chrome Extension </h6>
 
 Table of Contents
 
-Overview
-Features
+* Overview
+* Features
 Installation
 Usage
 Keyboard Shortcuts
